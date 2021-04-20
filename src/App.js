@@ -1,12 +1,10 @@
 import React from "react";
-import Header from "./component/Header";
-import Table from "./component/Table";
+import TopBar from "./component/TopBar";
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <Table />
+      <TopBar />
     </div>
   );
 };

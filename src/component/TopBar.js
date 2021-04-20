@@ -1,8 +1,8 @@
 import React from "react";
 
-const Header = () => {
+const TopBar = () => {
   return (
-    <head>
+    <>
       <div class="top-bar">
         <div class="logo">
           <a href="index.html">
@@ -16,8 +16,8 @@ const Header = () => {
           <a href="login.html">Login</a>
         </div>
       </div>
-    </head>
+    </>
   );
 };
 
-export default Header;
+export default TopBar;
