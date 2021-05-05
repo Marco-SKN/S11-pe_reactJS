@@ -1,22 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TopBar = () => {
   return (
-    <>
-      <div class="top-bar">
-        <div class="logo">
-          <a href="index.html">
-            <em>S11 - pe</em>
-          </a>
-        </div>
-        <div class="cart-btn">
-          <a href="cart.html">Cart</a>
-        </div>
-        <div class="login-btn">
-          <a href="login.html">Login</a>
-        </div>
+    <div class="top-bar">
+      <div class="logo">
+        <Link to="/">
+          <em>S11 - pe</em>
+        </Link>
       </div>
-    </>
+      <div class="cart-btn">
+        <Link to="/cart">Cart</Link>
+      </div>
+      <div class="login-btn">
+        <Link to="/login">Login</Link>
+      </div>
+    </div>
   );
 };
 

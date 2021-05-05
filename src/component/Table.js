@@ -1,14 +1,16 @@
 import React from "react";
 import kopi from "../images/kopi.png";
+import Card from "./Card";
 
 const Table = () => {
   return (
-    <div>
-      <p>
-        <img src={kopi} /> Kopi-o <br /> $5
-      </p>
-
-      <button>BUY</button>
+    <div className="item-container">
+      <Card image={kopi} />
+      <Card image={kopi} />
+      <Card image={kopi} />
+      <Card image={kopi} />
+      <Card image={kopi} />
+      <Card image={kopi} />
     </div>
   );
 };
