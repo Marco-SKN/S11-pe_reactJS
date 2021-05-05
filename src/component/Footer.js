@@ -2,21 +2,16 @@ import React from "react";
 import facebook from "../images/facebook.png";
 import twitter from "../images/twitter.png";
 import instagram from "../images/instagram.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer>
       <div className="btm-bar">
         <div className="page-link">
-          <a href="about.html" className="about-us">
-            About us
-          </a>
-          <a href="contact.html" className="contact">
-            Contact
-          </a>
-          <a href="career.html" className="career">
-            Career
-          </a>
+          <Link to="/S11-pe_reactJS/about">About us</Link>
+          <Link to="/S11-pe_reactJS/contact">Contact</Link>
+          <Link to="/S11-pe_reactJS/career">Career</Link>
         </div>
 
         <div className="social-media">

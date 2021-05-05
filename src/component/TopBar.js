@@ -5,15 +5,15 @@ const TopBar = () => {
   return (
     <div class="top-bar">
       <div class="logo">
-        <Link to="/">
+        <Link to="/S11-pe_reactJS">
           <em>S11 - pe</em>
         </Link>
       </div>
       <div class="cart-btn">
-        <Link to="/cart">Cart</Link>
+        <Link to="/S11-pe_reactJS/cart">Cart</Link>
       </div>
       <div class="login-btn">
-        <Link to="/login">Login</Link>
+        <Link to="/S11-pe_reactJS/login">Login</Link>
       </div>
     </div>
   );

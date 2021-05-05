@@ -15,12 +15,12 @@ const App = () => {
     <BrowserRouter>
       <TopBar />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/cart" component={Cart} />
-        <Route path="/login" component={Login} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/career" component={Career} />
+        <Route path="/S11-pe_reactJS" exact component={Home} />
+        <Route path="/S11-pe_reactJS/cart" component={Cart} />
+        <Route path="/S11-pe_reactJS/login" component={Login} />
+        <Route path="/S11-pe_reactJS/about" component={About} />
+        <Route path="/S11-pe_reactJS/contact" component={Contact} />
+        <Route path="/S11-pe_reactJS/career" component={Career} />
       </Switch>
       <Footer />
     </BrowserRouter>
