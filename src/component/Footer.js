@@ -16,13 +16,13 @@ const Footer = () => {
 
         <div className="social-media">
           <a href="https://www.facebook.com">
-            <img src={facebook} />
+            <img src={facebook} alt="facebook link" />
           </a>
           <a href="https://www.twitter.com">
-            <img src={twitter} />
+            <img src={twitter} alt="twitter link" />
           </a>
           <a href="https://www.instagram.com">
-            <img src={instagram} />
+            <img src={instagram} alt="instagram link" />
           </a>
         </div>
       </div>

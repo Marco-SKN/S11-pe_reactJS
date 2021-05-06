@@ -1,19 +1,16 @@
 import React from "react";
 
-const Card = ({ image }) => {
+const Card = ({ image, name, price }) => {
   return (
     <div className="item">
-      <img src={image} />
+      <img src={image} alt="" />
       <div className="item-details">
         <div className="item-name">
-          <h5>Kopi</h5>
-          <a>
-            <s>$19.99</s>
-            <br></br>$1.00
-          </a>
+          <h5>{name}</h5>
+          <span>{price}</span>
         </div>
         <div className="add-icon">
-          <a href="#">+</a>
+          <button>+</button>
         </div>
       </div>
     </div>
