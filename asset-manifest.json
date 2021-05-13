@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/S11-pe_reactJS/static/css/main.606c1570.chunk.css",
-    "main.js": "/S11-pe_reactJS/static/js/main.500ff386.chunk.js",
-    "main.js.map": "/S11-pe_reactJS/static/js/main.500ff386.chunk.js.map",
-    "runtime-main.js": "/S11-pe_reactJS/static/js/runtime-main.7dbe8e93.js",
-    "runtime-main.js.map": "/S11-pe_reactJS/static/js/runtime-main.7dbe8e93.js.map",
-    "static/js/2.71c6452a.chunk.js": "/S11-pe_reactJS/static/js/2.71c6452a.chunk.js",
-    "static/js/2.71c6452a.chunk.js.map": "/S11-pe_reactJS/static/js/2.71c6452a.chunk.js.map",
-    "static/js/3.5e0ecc1c.chunk.js": "/S11-pe_reactJS/static/js/3.5e0ecc1c.chunk.js",
-    "static/js/3.5e0ecc1c.chunk.js.map": "/S11-pe_reactJS/static/js/3.5e0ecc1c.chunk.js.map",
+    "main.css": "/S11-pe_reactJS/static/css/main.b673fb91.chunk.css",
+    "main.js": "/S11-pe_reactJS/static/js/main.709817d8.chunk.js",
+    "main.js.map": "/S11-pe_reactJS/static/js/main.709817d8.chunk.js.map",
+    "runtime-main.js": "/S11-pe_reactJS/static/js/runtime-main.319489ff.js",
+    "runtime-main.js.map": "/S11-pe_reactJS/static/js/runtime-main.319489ff.js.map",
+    "static/js/2.778a56f9.chunk.js": "/S11-pe_reactJS/static/js/2.778a56f9.chunk.js",
+    "static/js/2.778a56f9.chunk.js.map": "/S11-pe_reactJS/static/js/2.778a56f9.chunk.js.map",
+    "static/js/3.805613ee.chunk.js": "/S11-pe_reactJS/static/js/3.805613ee.chunk.js",
+    "static/js/3.805613ee.chunk.js.map": "/S11-pe_reactJS/static/js/3.805613ee.chunk.js.map",
     "index.html": "/S11-pe_reactJS/index.html",
-    "static/css/main.606c1570.chunk.css.map": "/S11-pe_reactJS/static/css/main.606c1570.chunk.css.map",
-    "static/js/2.71c6452a.chunk.js.LICENSE.txt": "/S11-pe_reactJS/static/js/2.71c6452a.chunk.js.LICENSE.txt",
+    "static/css/main.b673fb91.chunk.css.map": "/S11-pe_reactJS/static/css/main.b673fb91.chunk.css.map",
+    "static/js/2.778a56f9.chunk.js.LICENSE.txt": "/S11-pe_reactJS/static/js/2.778a56f9.chunk.js.LICENSE.txt",
     "static/media/fang zhen lor mee.ad2fe6db.jpg": "/S11-pe_reactJS/static/media/fang zhen lor mee.ad2fe6db.jpg",
     "static/media/fire breakout.d7d46a61.jpg": "/S11-pe_reactJS/static/media/fire breakout.d7d46a61.jpg",
     "static/media/kopi peng.png": "/S11-pe_reactJS/static/media/kopi peng.7c57f3da.png",
@@ -27,9 +27,9 @@
     "static/media/teh.png": "/S11-pe_reactJS/static/media/teh.9d522538.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.7dbe8e93.js",
-    "static/js/2.71c6452a.chunk.js",
-    "static/css/main.606c1570.chunk.css",
-    "static/js/main.500ff386.chunk.js"
+    "static/js/runtime-main.319489ff.js",
+    "static/js/2.778a56f9.chunk.js",
+    "static/css/main.b673fb91.chunk.css",
+    "static/js/main.709817d8.chunk.js"
   ]
 }
