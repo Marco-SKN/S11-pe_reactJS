@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TopBar from "./component/TopBar";
 import About from "./component/About";
 import Career from "./component/Career";
@@ -74,16 +74,24 @@ const App = () => {
     },
   ];
 
+  const [cartList, setCartList] = useState([]);
+
+  const updateCart = (card) => {
+    setCartList([...cartList, card]);
+    console.log("updating card with " + card.name);
+    console.log(cartList);
+  };
+
   return (
     <BrowserRouter>
       <TopBar />
       <Switch>
-        <Route
-          path="/S11-pe_reactJS"
-          exact
-          render={(props) => <Home {...props} itemList={itemList} />}
-        />
-        <Route path="/S11-pe_reactJS/cart" component={Cart} />
+        <Route path="/S11-pe_reactJS" exact>
+          <Home itemList={itemList} updateCart={updateCart} />
+        </Route>
+        <Route path="/S11-pe_reactJS/cart">
+          <Cart cartList={cartList} />
+        </Route>
         <Route path="/S11-pe_reactJS/login" component={Login} />
         <Route path="/S11-pe_reactJS/about" component={About} />
         <Route path="/S11-pe_reactJS/contact" component={Contact} />

@@ -1,11 +1,7 @@
 import React from "react";
 // import Proptypes from "prop-types";
 
-const Button = ({ text, cssClass }) => {
-  const onClick = () => {
-    console.log("Clicked!");
-  };
-
+const Button = ({ text, cssClass, onClick }) => {
   return (
     <>
       <button className={cssClass} onClick={onClick}>

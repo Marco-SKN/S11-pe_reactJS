@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "./Button";
 
-const Card = ({ imageSource, name, price }) => {
-  // const [card, setCard] = useState([]);
-
+const Card = ({ imageSource, name, price, onAdd }) => {
   return (
     <div className="item">
       <img src={imageSource} alt="" />
@@ -13,7 +11,7 @@ const Card = ({ imageSource, name, price }) => {
           <span>{price}</span>
         </div>
         <div className="add-icon">
-          <Button text="+" />
+          <Button text="+" onClick={onAdd} />
         </div>
       </div>
     </div>
