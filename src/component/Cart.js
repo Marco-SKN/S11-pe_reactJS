@@ -2,7 +2,7 @@ import React from "react";
 import Title from "./Title";
 import CartItem from "./CartItem";
 
-const Cart = ({ cartList }) => {
+const Cart = ({ cartList, updateQuantity, onDelete }) => {
   const title = "Promotion";
   const paragraph = (
     <span>
@@ -25,9 +25,9 @@ const Cart = ({ cartList }) => {
             {cartList.map((cartItem) => (
               <CartItem
                 key={cartItem.id}
-                name={cartItem.name}
-                price={cartItem.price}
-                picture={cartItem.image.default}
+                item={cartItem}
+                onDelete={onDelete}
+                updateQuantity={updateQuantity}
               />
             ))}
           </div>

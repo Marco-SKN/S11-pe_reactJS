@@ -14,6 +14,7 @@ const Button = ({ text, cssClass, onClick }) => {
 Button.defaultProps = {
   text: "BUTTON HERE",
   cssClass: null,
+  onClick: null,
 };
 
 // Button.propTypes = {

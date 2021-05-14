@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import Proptypes from "prop-types";
 
-const TopBar = () => {
+const TopBar = ({ cartNum }) => {
   return (
     <header>
       <div className="top-bar">
@@ -11,7 +12,10 @@ const TopBar = () => {
           </Link>
         </div>
         <div className="cart-btn">
-          <Link to="/S11-pe_reactJS/cart">Cart</Link>
+          <Link to="/S11-pe_reactJS/cart">
+            Cart
+            <div className={`cart-num ${cartNum ? "" : "none"}`}>{cartNum}</div>
+          </Link>
         </div>
         <div className="login-btn">
           <Link to="/S11-pe_reactJS/login">Login</Link>
@@ -19,6 +23,10 @@ const TopBar = () => {
       </div>
     </header>
   );
+};
+
+TopBar.defaultProps = {
+  cartNum: 0,
 };
 
 export default TopBar;

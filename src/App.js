@@ -75,22 +75,56 @@ const App = () => {
   ];
 
   const [cartList, setCartList] = useState([]);
+  const [totalQuantity, setTotalQuantity] = useState(0);
 
-  const updateCart = (card) => {
-    setCartList([...cartList, card]);
-    console.log("updating card with " + card.name);
-    console.log(cartList);
+  const updateCart = (cartItem) => {
+    if (cartList.length > 0) {
+      for (let cartKey of cartList) {
+        if (cartKey.id === cartItem.id) {
+          cartKey.quantity += 1;
+          setTotalQuantity(totalQuantity + 1);
+          return;
+        }
+      }
+    }
+    cartItem.quantity = 1;
+    setCartList([...cartList, cartItem]);
+    setTotalQuantity(totalQuantity + 1);
+  };
+
+  const updateQuantity = (cartItem, add) => {
+    for (let cartKey of cartList) {
+      if (cartKey.id === cartItem.id) {
+        if (add) {
+          cartKey.quantity += 1;
+          setTotalQuantity(totalQuantity + 1);
+        } else {
+          cartKey.quantity -= 1;
+          setTotalQuantity(totalQuantity - 1);
+        }
+        return;
+      }
+    }
+  };
+
+  const deleteCartItem = (cartItem) => {
+    setCartList(cartList.filter((item) => item.name !== cartItem.name));
+    setTotalQuantity(totalQuantity - 1);
   };
 
   return (
     <BrowserRouter>
-      <TopBar />
+      <TopBar cartNum={totalQuantity} />
       <Switch>
         <Route path="/S11-pe_reactJS" exact>
           <Home itemList={itemList} updateCart={updateCart} />
         </Route>
         <Route path="/S11-pe_reactJS/cart">
-          <Cart cartList={cartList} />
+          <Cart
+            cartList={cartList}
+            onDelete={deleteCartItem}
+            updateQuantity={updateQuantity}
+          />
         </Route>
         <Route path="/S11-pe_reactJS/login" component={Login} />
         <Route path="/S11-pe_reactJS/about" component={About} />

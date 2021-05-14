@@ -63,6 +63,21 @@ body {
   width: 5%;
 }
 
+.top-bar .cart-btn .cart-num {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.cart-num.none {
+  visibility: hidden;
+}
+
 .top-bar .login-btn {
   width: 5%;
 }
