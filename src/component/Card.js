@@ -1,14 +1,14 @@
 import React from "react";
 import Button from "./Button";
 
-const Card = ({ imageSource, name, price, onAdd }) => {
+const Card = ({ item, onAdd }) => {
   return (
     <div className="item">
-      <img src={imageSource} alt="" />
+      <img src={item.image.default} alt="" />
       <div className="item-details">
         <div className="item-name">
-          <h5>{name}</h5>
-          <span>{price}</span>
+          <h5>{item.name}</h5>
+          <span>{`$${item.price.toFixed(2)}`}</span>
         </div>
         <div className="add-icon">
           <Button text="+" onClick={onAdd} />

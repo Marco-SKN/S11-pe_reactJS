@@ -1,8 +1,16 @@
 import React from "react";
 import Title from "./Title";
 import CartItem from "./CartItem";
+import CartPrice from "./CartPrice";
 
-const Cart = ({ cartList, updateQuantity, onDelete }) => {
+const Cart = ({
+  cartList,
+  updateQuantity,
+  subtotal,
+  grandTotal,
+  promoCode,
+  onDelete,
+}) => {
   const title = "Promotion";
   const paragraph = (
     <span>
@@ -11,6 +19,12 @@ const Cart = ({ cartList, updateQuantity, onDelete }) => {
         <u style={{ color: "var(--primary-color)" }}>S11-pe stock option.</u>
       </b>{" "}
       Sign up now!
+      <br />
+      <br />
+      Use promo code: <b style={{ color: "var(--primary-color)" }}>
+        MAY2021
+      </b>{" "}
+      for 10% discount.
     </span>
   );
 
@@ -31,29 +45,13 @@ const Cart = ({ cartList, updateQuantity, onDelete }) => {
               />
             ))}
           </div>
+
           <div className="cart-price">
-            <label>PROMO CODE:</label>
-            <div className="promo-code">
-              <input type="text" placeholder="Enter promo code" />
-              <button>APPLY</button>
-            </div>
-            <div className="price-row">
-              <span>SUBTOTAL:</span>
-              <span>$2.10</span>
-            </div>
-            <div className="price-row">
-              <span>SHIPPING:</span>
-              <span>$20.00</span>
-            </div>
-            <div className="price-row">
-              <span>
-                <b>GRAND TOTAL:</b>
-              </span>
-              <span>$22.10</span>
-            </div>
-            <div className="checkout-btn">
-              <button>PROCEED TO PAY</button>
-            </div>
+            <CartPrice
+              subtotal={subtotal}
+              grandTotal={grandTotal}
+              promoCode={promoCode}
+            />
           </div>
         </div>
       </section>

@@ -2,20 +2,25 @@ import React, { useState } from "react";
 import Button from "./Button";
 
 const CartItem = ({ item, updateQuantity, onDelete }) => {
-  const [Quantity, setQuantity] = useState(item.quantity);
+  const [quantity, setQuantity] = useState(item.quantity);
+  const [quantityPrice, setQuantityPrice] = useState(
+    item.price * item.quantity
+  );
 
   const upQuantity = (item) => {
-    setQuantity(Quantity + 1);
+    setQuantity(quantity + 1);
+    setQuantityPrice(quantityPrice + item.price);
     updateQuantity(item, true);
   };
 
   const downQuantity = (item) => {
-    if (Quantity === 1) {
+    if (quantity === 1) {
       if (window.confirm("Remove this item from cart?")) {
         onDelete(item);
       }
     } else {
-      setQuantity(Quantity - 1);
+      setQuantity(quantity - 1);
+      setQuantityPrice(quantityPrice - item.price);
       updateQuantity(item, false);
     }
   };
@@ -25,9 +30,9 @@ const CartItem = ({ item, updateQuantity, onDelete }) => {
       <img src={item.image.default} alt="" />
       <div className="cart-details">
         <h3>{item.name}</h3>
-        <span>{item.price}</span>
+        <span>{`$${quantityPrice.toFixed(2)}`}</span>
         <div className="quantity">
-          <Button text="-" onClick={downQuantity.bind(this, item)} /> {Quantity}{" "}
+          <Button text="-" onClick={downQuantity.bind(this, item)} /> {quantity}{" "}
           <Button text="+" onClick={upQuantity.bind(this, item)} />
         </div>
       </div>

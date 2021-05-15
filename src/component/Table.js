@@ -9,13 +9,7 @@ const Table = ({ itemList, updateCart }) => {
   return (
     <div className="item-container">
       {itemList.map((item) => (
-        <Card
-          key={item.id}
-          imageSource={item.image.default}
-          name={item.name}
-          price={item.price}
-          onAdd={onAdd.bind(this, item)}
-        />
+        <Card key={item.id} item={item} onAdd={onAdd.bind(this, item)} />
       ))}
     </div>
   );
