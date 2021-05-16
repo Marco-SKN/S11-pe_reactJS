@@ -10,6 +10,7 @@ const Cart = ({
   grandTotal,
   promoCode,
   onDelete,
+  discount,
 }) => {
   const title = "Promotion";
   const paragraph = (
@@ -51,6 +52,7 @@ const Cart = ({
               subtotal={subtotal}
               grandTotal={grandTotal}
               promoCode={promoCode}
+              discount={discount}
             />
           </div>
         </div>

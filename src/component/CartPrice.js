@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-const CartPrice = ({ subtotal, promoCode, grandTotal }) => {
+const CartPrice = ({ subtotal, promoCode, discount, grandTotal }) => {
   const [code, setCode] = useState("");
+
   const useCode = () => {
     promoCode(code);
     setCode("");
@@ -27,6 +28,10 @@ const CartPrice = ({ subtotal, promoCode, grandTotal }) => {
       <div className="price-row">
         <span>SHIPPING:</span>
         <span>$1.90</span>
+      </div>
+      <div className="price-row">
+        <span>{`PROMO CODE: ${discount ? "10% OFF" : ""}`}</span>
+        <span>{`-$${discount.toFixed(2)}`}</span>
       </div>
       <div className="price-row">
         <span>

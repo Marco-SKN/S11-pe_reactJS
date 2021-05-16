@@ -78,6 +78,7 @@ const App = () => {
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
   const [grandTotal, setGrandTotal] = useState(1.9);
+  const [discount, setDiscount] = useState(0);
 
   const updateCart = (cartItem) => {
     if (cartList.length > 0) {
@@ -86,7 +87,7 @@ const App = () => {
           cartKey.quantity += 1;
           setTotalQuantity(totalQuantity + 1);
           setSubtotal(subtotal + cartKey.price);
-          setGrandTotal(grandTotal + cartKey.price);
+          updateGrandTotal(cartKey.price, true);
           return;
         }
       }
@@ -95,7 +96,7 @@ const App = () => {
     setCartList([...cartList, cartItem]);
     setTotalQuantity(totalQuantity + 1);
     setSubtotal(subtotal + cartItem.price);
-    setGrandTotal(grandTotal + cartItem.price);
+    updateGrandTotal(cartItem.price, true);
   };
 
   const updateQuantity = (cartItem, add) => {
@@ -105,12 +106,12 @@ const App = () => {
           cartKey.quantity += 1;
           setTotalQuantity(totalQuantity + 1);
           setSubtotal(subtotal + cartItem.price);
-          setGrandTotal(grandTotal + cartItem.price);
+          updateGrandTotal(cartItem.price, true);
         } else {
           cartKey.quantity -= 1;
           setTotalQuantity(totalQuantity - 1);
           setSubtotal(subtotal - cartItem.price);
-          setGrandTotal(grandTotal - cartItem.price);
+          updateGrandTotal(cartItem.price, false);
         }
         return;
       }
@@ -121,12 +122,32 @@ const App = () => {
     setCartList(cartList.filter((item) => item.name !== cartItem.name));
     setTotalQuantity(totalQuantity - 1);
     setSubtotal(subtotal - cartItem.price);
-    setGrandTotal(grandTotal - cartItem.price);
+    updateGrandTotal(cartItem.price, false);
   };
 
   const promoCode = (code) => {
     if (code == "MAY2021") {
-      setGrandTotal(grandTotal * 0.9);
+      setDiscount(0.1 * subtotal);
+      setGrandTotal(0.9 * subtotal + 1.9);
+    } else {
+      setDiscount(0);
+      setGrandTotal(subtotal + 1.9);
+    }
+  };
+
+  const updateGrandTotal = (price, add) => {
+    if (!discount && add) {
+      setGrandTotal(grandTotal + price);
+    } else if (!discount && !add) {
+      setGrandTotal(grandTotal - price);
+    }
+
+    if (discount && add) {
+      setDiscount(discount + price * 0.1);
+      setGrandTotal(grandTotal + price * 0.9);
+    } else if (discount && !add) {
+      setDiscount(discount - price * 0.1);
+      setGrandTotal(grandTotal - price * 0.9);
     }
   };
 
@@ -145,6 +166,7 @@ const App = () => {
             subtotal={subtotal}
             grandTotal={grandTotal}
             promoCode={promoCode}
+            discount={discount}
           />
         </Route>
         <Route path="/S11-pe_reactJS/login" component={Login} />
