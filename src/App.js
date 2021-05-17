@@ -126,7 +126,7 @@ const App = () => {
   };
 
   const promoCode = (code) => {
-    if (code == "MAY2021") {
+    if (code === "MAY2021") {
       setDiscount(0.1 * subtotal);
       setGrandTotal(0.9 * subtotal + 1.9);
     } else {
