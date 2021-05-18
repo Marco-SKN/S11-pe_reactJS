@@ -4,6 +4,7 @@ import About from "./component/About";
 import Career from "./component/Career";
 import Cart from "./component/Cart";
 import Contact from "./component/Contact";
+import Dashboard from "./component/Dashboard";
 import Footer from "./component/Footer";
 import Home from "./component/Home";
 import Login from "./component/Login";
@@ -79,6 +80,8 @@ const App = () => {
   const [subtotal, setSubtotal] = useState(0);
   const [grandTotal, setGrandTotal] = useState(1.9);
   const [discount, setDiscount] = useState(0);
+  const [name, setName] = useState(undefined);
+  const [authorised, setAuthorised] = useState(false);
 
   const updateCart = (cartItem) => {
     if (cartList.length > 0) {
@@ -151,6 +154,15 @@ const App = () => {
     }
   };
 
+  const updateAuthorisation = (value) => {
+    console.log(authorised);
+    setAuthorised(true);
+  };
+
+  const updateName = (name) => {
+    setName(name);
+  };
+
   return (
     <BrowserRouter>
       <TopBar cartNum={totalQuantity} />
@@ -169,10 +181,19 @@ const App = () => {
             discount={discount}
           />
         </Route>
-        <Route path="/S11-pe_reactJS/login" component={Login} />
+        <Route path="/S11-pe_reactJS/login">
+          <Login
+            updateAuthorisation={updateAuthorisation}
+            updateName={updateName}
+          />
+        </Route>
         <Route path="/S11-pe_reactJS/about" component={About} />
         <Route path="/S11-pe_reactJS/contact" component={Contact} />
         <Route path="/S11-pe_reactJS/career" component={Career} />
+        <Route
+          path="/S11-pe_reactJS/dashboard"
+          component={() => <Dashboard authorised={authorised} name={name} />}
+        />
       </Switch>
       <Footer />
     </BrowserRouter>
