@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import Proptypes from "prop-types";
 
-const TopBar = ({ cartNum }) => {
+const TopBar = ({ cartNum, authorised }) => {
   return (
     <header>
       <div className="top-bar">
@@ -18,7 +18,11 @@ const TopBar = ({ cartNum }) => {
           </Link>
         </div>
         <div className="login-btn">
-          <Link to="/S11-pe_reactJS/login">Login</Link>
+          {authorised ? (
+            <Link to="/S11-pe_reactJS/dashboard">Dashboard</Link>
+          ) : (
+            <Link to="/S11-pe_reactJS/login">Login</Link>
+          )}
         </div>
       </div>
     </header>

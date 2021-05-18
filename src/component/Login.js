@@ -12,6 +12,7 @@ const Login = ({ updateName, updateAuthorisation }) => {
       console.log(pw);
       updateAuthorisation(true);
       history.push("/S11-pe_reactJS/dashboard");
+      return;
     }
     setPw("");
   };

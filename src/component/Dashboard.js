@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import Title from "./Title";
 
 const Dashboard = ({ authorised, name }) => {
   if (!authorised) {
@@ -10,14 +11,17 @@ const Dashboard = ({ authorised, name }) => {
     );
   }
   return (
-    <div>
-      <h1>Hello {name}</h1>
-      <h1>Hello {name}</h1>
-      <h1>Hello {name}</h1>
-      <h1>Hello {name}</h1>
-      <h1>Hello {name}</h1>
-      <h1>Hello {name}</h1>
-    </div>
+    <>
+      <Title title={"Dashboard"} paragraph={`Welcome ${name}!`} />
+      <section>
+        <h1>Hello {name}</h1>
+        <h1>Hello {name}</h1>
+        <h1>Hello {name}</h1>
+        <h1>Hello {name}</h1>
+        <h1>Hello {name}</h1>
+        <h1>Hello {name}</h1>
+      </section>
+    </>
   );
 };
 

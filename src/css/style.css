@@ -56,7 +56,7 @@ body {
 }
 
 .top-bar .logo {
-  width: 90%;
+  width: 85%;
 }
 
 .top-bar .cart-btn {
@@ -483,7 +483,7 @@ footer {
   }
 
   .top-bar .logo {
-    width: 85%;
+    width: 80%;
   }
 
   .top-bar .cart-btn {
@@ -507,7 +507,7 @@ footer {
 
 @media (max-width: 800px) {
   .top-bar .logo {
-    width: 70%;
+    width: 65%;
   }
 
   .top-bar .cart-btn {
@@ -515,7 +515,7 @@ footer {
   }
 
   .top-bar .login-btn {
-    width: 15%;
+    width: 20%;
   }
 
   .top-bar .logo a {

@@ -165,7 +165,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <TopBar cartNum={totalQuantity} />
+      <TopBar cartNum={totalQuantity} authorised={authorised} />
       <Switch>
         <Route path="/S11-pe_reactJS" exact>
           <Home itemList={itemList} updateCart={updateCart} />
