@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import Button from "./Button";
 import DashboardItem from "./DashboardItem";
 import Title from "./Title";
 
@@ -9,7 +10,13 @@ const Dashboard = ({
   itemList,
   updateItemList,
   deleteItemList,
+  updateAuthorisation,
 }) => {
+  const logout = () => {
+    let confirmation = window.confirm("Logout of current session?");
+    if (confirmation) updateAuthorisation(false);
+  };
+
   if (!authorised) {
     return (
       <>
@@ -20,6 +27,7 @@ const Dashboard = ({
   return (
     <>
       <Title title={"Dashboard"} paragraph={`Welcome ${name}!`} />
+      <Button cssClass="logout-btn" text="Logout" onClick={logout} />
       <section>
         <table>
           <thead>

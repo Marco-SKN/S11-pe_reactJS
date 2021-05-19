@@ -164,7 +164,7 @@ const App = () => {
   // Login Authentication
   const updateAuthorisation = (value) => {
     console.log(authorised);
-    setAuthorised(true);
+    setAuthorised(value);
   };
 
   const updateName = (name) => {
@@ -226,6 +226,7 @@ const App = () => {
               itemList={itemList}
               updateItemList={updateItemList}
               deleteItemList={deleteItemList}
+              updateAuthorisation={updateAuthorisation}
             />
           )}
         />

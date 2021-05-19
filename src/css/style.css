@@ -464,6 +464,14 @@ table tbody .dashboard-btn {
   width: 50px;
 }
 
+.logout-btn {
+  position: absolute;
+  right: 15%;
+  top: 15%;
+  height: 30px;
+  width: 50px;
+}
+
 /* FOOTER */
 footer {
   height: 100px;
@@ -613,6 +621,10 @@ footer {
     height: 20px;
     width: 30px;
     font-size: 0.6rem;
+  }
+
+  .logout-btn {
+    right: 5%;
   }
 
   .btm-bar {
