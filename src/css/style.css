@@ -327,6 +327,7 @@ section {
   justify-content: flex-start;
   align-items: flex-start;
   width: 50%;
+  min-height: 120px;
 }
 
 .cart .cart-container .cart-item {

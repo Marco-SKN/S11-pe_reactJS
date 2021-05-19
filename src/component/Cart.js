@@ -36,15 +36,18 @@ const Cart = ({
       <section>
         <div className="cart">
           <div className="cart-container">
-            {console.log(cartList)}
-            {cartList.map((cartItem) => (
-              <CartItem
-                key={cartItem.id}
-                item={cartItem}
-                onDelete={onDelete}
-                updateQuantity={updateQuantity}
-              />
-            ))}
+            {!cartList.length ? (
+              <h3>No item added to cart yet</h3>
+            ) : (
+              cartList.map((cartItem) => (
+                <CartItem
+                  key={cartItem.id}
+                  item={cartItem}
+                  onDelete={onDelete}
+                  updateQuantity={updateQuantity}
+                />
+              ))
+            )}
           </div>
 
           <div className="cart-price">
