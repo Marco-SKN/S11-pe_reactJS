@@ -12,7 +12,7 @@ import Login from "./component/Login";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 const App = () => {
-  const itemList = [
+  const initialList = [
     {
       id: 1,
       image: require("./images/kopi.png"),
@@ -75,14 +75,21 @@ const App = () => {
     },
   ];
 
+  // State for Cart
   const [cartList, setCartList] = useState([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
   const [grandTotal, setGrandTotal] = useState(1.9);
   const [discount, setDiscount] = useState(0);
+
+  // State for Login
   const [name, setName] = useState(undefined);
   const [authorised, setAuthorised] = useState(false);
 
+  // State for Dashboard
+  const [itemList, setItemList] = useState(initialList);
+
+  // Cart function
   const updateCart = (cartItem) => {
     if (cartList.length > 0) {
       for (let cartKey of cartList) {
@@ -154,6 +161,7 @@ const App = () => {
     }
   };
 
+  // Login Authentication
   const updateAuthorisation = (value) => {
     console.log(authorised);
     setAuthorised(true);
@@ -161,6 +169,25 @@ const App = () => {
 
   const updateName = (name) => {
     setName(name);
+  };
+
+  // Dashboard function
+  const updateItemList = (newChanges) => {
+    console.log(itemList);
+    setItemList(
+      itemList.map((item) => {
+        if (item.id === newChanges.id) {
+          item.name = newChanges.name;
+          item.price = newChanges.price;
+        }
+        return item;
+      })
+    );
+  };
+
+  const deleteItemList = (target) => {
+    console.log(target);
+    setItemList(itemList.filter((item) => item.id !== target));
   };
 
   return (
@@ -192,7 +219,15 @@ const App = () => {
         <Route path="/S11-pe_reactJS/career" component={Career} />
         <Route
           path="/S11-pe_reactJS/dashboard"
-          component={() => <Dashboard authorised={authorised} name={name} />}
+          component={() => (
+            <Dashboard
+              authorised={authorised}
+              name={name}
+              itemList={itemList}
+              updateItemList={updateItemList}
+              deleteItemList={deleteItemList}
+            />
+          )}
         />
       </Switch>
       <Footer />

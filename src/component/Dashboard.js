@@ -1,8 +1,15 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import DashboardItem from "./DashboardItem";
 import Title from "./Title";
 
-const Dashboard = ({ authorised, name }) => {
+const Dashboard = ({
+  authorised,
+  name,
+  itemList,
+  updateItemList,
+  deleteItemList,
+}) => {
   if (!authorised) {
     return (
       <>
@@ -14,12 +21,28 @@ const Dashboard = ({ authorised, name }) => {
     <>
       <Title title={"Dashboard"} paragraph={`Welcome ${name}!`} />
       <section>
-        <h1>Hello {name}</h1>
-        <h1>Hello {name}</h1>
-        <h1>Hello {name}</h1>
-        <h1>Hello {name}</h1>
-        <h1>Hello {name}</h1>
-        <h1>Hello {name}</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {console.log(itemList)}
+            {itemList.map((item) => (
+              <DashboardItem
+                key={item.id}
+                item={item}
+                updateItemList={updateItemList}
+                deleteItemList={deleteItemList}
+              />
+            ))}
+          </tbody>
+        </table>
       </section>
     </>
   );
