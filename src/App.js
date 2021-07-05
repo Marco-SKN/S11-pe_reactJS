@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TopBar from "./component/TopBar";
 import About from "./component/About";
 import Career from "./component/Career";
@@ -12,69 +12,6 @@ import Login from "./component/Login";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 const App = () => {
-  const initialList = [
-    {
-      id: 1,
-      image: require("./images/kopi.png"),
-      name: "Kopi",
-      price: 1.1,
-    },
-    {
-      id: 2,
-      image: require("./images/kopi-c.png"),
-      name: "Kopi-C",
-      price: 1.2,
-    },
-    {
-      id: 3,
-      image: require("./images/kopi-o.png"),
-      name: "Kopi-O",
-      price: 1.0,
-    },
-    {
-      id: 4,
-      image: require("./images/kopi-o kosong.png"),
-      name: "Kopi-O Kosong",
-      price: 0.9,
-    },
-    {
-      id: 5,
-      image: require("./images/teh.png"),
-      name: "Teh",
-      price: 1.1,
-    },
-    {
-      id: 6,
-      image: require("./images/teh-c.png"),
-      name: "Teh-C",
-      price: 1.2,
-    },
-    {
-      id: 7,
-      image: require("./images/teh-o.png"),
-      name: "Teh-O",
-      price: 1.0,
-    },
-    {
-      id: 8,
-      image: require("./images/teh-o kosong.png"),
-      name: "Teh-O Kosong",
-      price: 0.9,
-    },
-    {
-      id: 9,
-      image: require("./images/kopi peng.png"),
-      name: "Iced Coffee",
-      price: 1.5,
-    },
-    {
-      id: 10,
-      image: require("./images/teh peng.png"),
-      name: "Iced Tea",
-      price: 1.5,
-    },
-  ];
-
   // State for Cart
   const [cartList, setCartList] = useState([]);
   const [totalQuantity, setTotalQuantity] = useState(0);
@@ -87,7 +24,17 @@ const App = () => {
   const [authorised, setAuthorised] = useState(false);
 
   // State for Dashboard
-  const [itemList, setItemList] = useState(initialList);
+  const [itemList, setItemList] = useState([]);
+
+  useEffect(() => {
+    getItemList();
+  }, []);
+
+  const getItemList = () => {
+    fetch("http://localhost:5000/itemlist")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
 
   // Cart function
   const updateCart = (cartItem) => {

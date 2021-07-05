@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Item = require("./model/item");
+const cors = require("cors");
 require("dotenv/config");
 
 const multer = require("multer");
@@ -18,6 +19,7 @@ const upload = multer({ storage: storage });
 app.use("/uploads", express.static("uploads"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 app.get("/itemlist", async (req, res) => {
   const getItem = await Item.find();
