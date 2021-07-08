@@ -27,7 +27,8 @@ const CartItem = ({ item, updateQuantity, onDelete }) => {
 
   return (
     <div className="cart-item">
-      <img src={item.image.default} alt="" />
+      <img src={"http://localhost:5000/" + item.image} alt="" />
+      {console.log(item)}
       <div className="cart-details">
         <h3>{item.name}</h3>
         <span>{`$${quantityPrice.toFixed(2)}`}</span>

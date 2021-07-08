@@ -23,7 +23,7 @@ const DashboardItem = ({ item, updateItemList, deleteItemList }) => {
       {console.log(item)}
       <tr>
         <td className="img-container">
-          <img src={item.image.default} alt="" />
+          <img src={"http://localhost:5000/" + item.image} alt="" />
         </td>
         <td>
           <input

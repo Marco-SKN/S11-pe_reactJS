@@ -1,6 +1,7 @@
 {
   "homepage": "https://Marco-SKN.github.io/S11-pe_reactJS",
   "name": "s11_kopi_pe",
+  "proxy": "http://localhost:5000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

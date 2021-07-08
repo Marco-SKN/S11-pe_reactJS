@@ -25,20 +25,29 @@ const App = () => {
 
   // State for Dashboard
   const [itemList, setItemList] = useState([]);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     getItemList();
-  }, []);
+  }, [query]);
 
   const getItemList = () => {
-    fetch("http://localhost:5000/itemlist")
+    fetch(`/itemlist/${query}`)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        setItemList(data);
+      });
+  };
+
+  const updateQuery = (searchWord) => {
+    setQuery(searchWord);
   };
 
   // Cart function
   const updateCart = (cartItem) => {
     if (cartList.length > 0) {
+      console.log("cartlist: ", cartList);
       for (let cartKey of cartList) {
         if (cartKey.id === cartItem.id) {
           cartKey.quantity += 1;
@@ -142,7 +151,11 @@ const App = () => {
       <TopBar cartNum={totalQuantity} authorised={authorised} />
       <Switch>
         <Route path="/S11-pe_reactJS" exact>
-          <Home itemList={itemList} updateCart={updateCart} />
+          <Home
+            itemList={itemList}
+            updateCart={updateCart}
+            updateQuery={updateQuery}
+          />
         </Route>
         <Route path="/S11-pe_reactJS/cart">
           <Cart

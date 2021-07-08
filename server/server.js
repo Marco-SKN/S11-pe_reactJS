@@ -32,7 +32,9 @@ app.get("/itemlist", async (req, res) => {
 
 app.get("/itemlist/:name", async (req, res) => {
   try {
-    const findItem = await Item.findOne({ name: req.params.name });
+    const findItem = await Item.find({
+      name: { $regex: req.params.name, $options: "i" },
+    });
     res.send(findItem);
   } catch (err) {
     res.json({ message: err });

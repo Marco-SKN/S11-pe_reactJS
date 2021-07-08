@@ -4,7 +4,7 @@ import Button from "./Button";
 const Card = ({ item, onAdd }) => {
   return (
     <div className="item">
-      <img src={item.image.default} alt="" />
+      <img src={"http://localhost:5000/" + item.image} alt="" />
       <div className="item-details">
         <div className="item-name">
           <h5>{item.name}</h5>
